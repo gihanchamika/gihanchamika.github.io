@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gihan | 3D Artist Portfolio</title>
+
+  <!-- Google Fonts: Syne (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">GIHAN<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#video">Reel</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+      </ul>
+      <!-- Hamburger for mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#projects" class="mobile-link">Work</a>
+      <a href="#video" class="mobile-link">Reel</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#contact" class="mobile-link">Hire Me</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <!-- Animated grid background -->
+    <div class="hero-grid"></div>
+    <!-- Glowing orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="hero-content">
+      <div class="hero-photo">
+      <img src="image/WhatsApp Image 2026-04-21 at 13.16.06.jpeg" alt="Gihan Chamika" />
+    </div>
+      <p class="hero-eyebrow fade-up">3D Artist & Visual Designer</p>
+      <h1 class="hero-title fade-up delay-1">
+        Crafting Worlds Aspiring <br/></h1>
+        <h3>| 3D animation | Game & VFX | Creative Digital Design | </h3>
+      <h1><span class="gradient-text">Pixel by Pixel</span>
+      </h1>
+      <p class="hero-sub fade-up delay-2">
+        I am an undergraduate student at the University of Kelaniya, currently following a Bachelor of Information and Communication Technology degree.
+        I am passionate about 3D art, digital design, and visual storytelling.
+        My main areas of interest include 3D modeling, animation, digital art, and illustration.
+        I enjoy creating game-ready assets and experimenting with visual effects. <br class="hide-mobile"/>
+      </p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator fade-up delay-4">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Selected Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Card 1 — Realistic Garage
+             Replace the image URLs with your own: "image/garage1.jpg" etc. -->
+        <div class="project-card fade-in"
+             data-title="Realistic Garage"
+             data-category="Environment Design"
+             data-desc="Designed a full 3D environment including lighting and composition. Improved environment design skills. Every surface material was hand-crafted using Substance Painter."
+             data-video=""
+             data-slides='[
+               "image/garage samples.png"
+             ]'>
+          <div class="card-slideshow">
+            <button class="slide-btn slide-prev" aria-label="Previous">&#8249;</button>
+            <button class="slide-btn slide-next" aria-label="Next">&#8250;</button>
+            <div class="slide-dots"></div>
+            <div class="card-overlay"><span class="card-icon">&#9654;</span></div>
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Environment Design</span>
+            <h3 class="card-title">Realistic Garage</h3>
+          </div>
+        </div>
+
+        <!-- Card 2 — Golden Retriever -->
+        <div class="project-card fade-in delay-1"
+             data-title="Golden Retriever"
+             data-category="Character Modeling"
+             data-desc="I created a 3D model of a Golden Retriever focusing on proper topology and realistic proportions. Improved sculpting and modeling skills. Polycount optimized for AAA game pipelines with 4K PBR texture sets."
+             data-video=""
+             data-slides='[
+               "image/1.png",
+               "image/2.png",
+               "image/3.png"
+               "image/4.jpg",
+               "image/5 d.jpg"
+             ]'>
+          <div class="card-slideshow">
+            <button class="slide-btn slide-prev" aria-label="Previous">&#8249;</button>
+            <button class="slide-btn slide-next" aria-label="Next">&#8250;</button>
+            <div class="slide-dots"></div>
+            <div class="card-overlay"><span class="card-icon">&#9654;</span></div>
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Character Modeling</span>
+            <h3 class="card-title">Golden Retriever</h3>
+          </div>
+        </div>
+
+        <!-- Card 3 — Luxury Watch -->
+        <div class="project-card fade-in delay-2"
+             data-title="Luxury Watch Model"
+             data-category="Hard Surface Modeling"
+             data-desc="Created a detailed watch model and applied realistic materials and textures. Learned texturing and material creation."
+             data-video=""
+             data-slides='[
+               "image/watch 1.png",
+               "image/watch final.png",
+               "image/watch new.png",
+               "image/watch.png"
+             ]'>
+          <div class="card-slideshow">
+            <button class="slide-btn slide-prev" aria-label="Previous">&#8249;</button>
+            <button class="slide-btn slide-next" aria-label="Next">&#8250;</button>
+            <div class="slide-dots"></div>
+            <div class="card-overlay"><span class="card-icon">&#9654;</span></div>
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Hard Surface Modeling</span>
+            <h3 class="card-title">Luxury Watch Model</h3>
+          </div>
+        </div>
+
+        <!-- Card 4 — Nissan Skyline -->
+        <div class="project-card fade-in"
+             data-title="Nissan Skyline Car Model"
+             data-category="Hard Surface Modeling"
+             data-desc="Modeled a detailed car with attention to shapes, edges, and reflections. Gained experience in hard surface modeling."
+             data-video=""
+             data-slides='[
+               "image/1.jpg",
+               "image/n2.jpg",
+               "image/Artboard 1.jpg",
+               "image/portfoli.png",
+               "image/n4.jpg",
+               "image/n6.jpg"
+             ]'>
+          <div class="card-slideshow">
+            <button class="slide-btn slide-prev" aria-label="Previous">&#8249;</button>
+            <button class="slide-btn slide-next" aria-label="Next">&#8250;</button>
+            <div class="slide-dots"></div>
+            <div class="card-overlay"><span class="card-icon">&#9654;</span></div>
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Hard Surface Modeling</span>
+            <h3 class="card-title">Nissan Skyline Car Model</h3>
+          </div>
+        </div>
+
+        <!-- Card 5 — Legion Club Logo -->
+        <div class="project-card fade-in delay-1"
+             data-title="Legion Club Logo Animation"
+             data-category="Logo Design"
+             data-desc="Modeled and animated a 3D version of the faculty Legion Club logo. Learned animation workflow and motion design."
+             data-video=""
+             data-slides='[
+               "image/0001.png",
+               "image/0113.png",
+               "image/0104.png"
+               "image/0054.png",
+               "image/0116.png",
+               "image/0002.png"
+               "image/0043.png"
+             ]'>
+          <div class="card-slideshow">
+            <button class="slide-btn slide-prev" aria-label="Previous">&#8249;</button>
+            <button class="slide-btn slide-next" aria-label="Next">&#8250;</button>
+            <div class="slide-dots"></div>
+            <div class="card-overlay"><span class="card-icon">&#9654;</span></div>
+          </div>
+          <div class="card-info">
+            <span class="card-cat">Logo Design</span>
+            <h3 class="card-title">Legion Club Logo Animation</h3>
+          </div>
+        </div>
+
+      </div><!-- /projects-grid -->
+    </div>
+  </section>
+
+  <!-- ===================== MODAL ===================== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-body">
+
+        <!-- Left: big image slideshow -->
+        <div class="modal-left">
+          <div class="modal-slideshow" id="modalSlideshow">
+            <!-- Slides injected by JS -->
+            <button class="modal-slide-btn modal-slide-prev" id="modalPrev">&#8249;</button>
+            <button class="modal-slide-btn modal-slide-next" id="modalNext">&#8250;</button>
+            <div class="modal-slide-dots" id="modalDots"></div>
+          </div>
+          <div class="modal-video-wrap" id="modalVideoWrap" style="display:none;">
+            <iframe id="modalVideo" src="" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Right: info + thumbnail grid -->
+        <div class="modal-right">
+          <span class="card-cat" id="modalCat"></span>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <!-- All thumbnails visible at once — click any to jump to it -->
+          <div class="modal-thumbs" id="modalThumbs"></div>
+          <div class="modal-tags">
+            <span class="tag">Blender</span>
+            <span class="tag">Substance Painter</span>
+            <span class="tag">Krita</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== VIDEO / DEMO REEL ===================== -->
+  <section class="video-section" id="video">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Reel</span>
+        <h2 class="section-title">Watch My Work</h2>
+      </div>
+      <div class="video-embed-wrap fade-in">
+        <!--
+          Replace the src below with your YouTube video embed URL:
+          e.g. https://www.youtube.com/embed/YOUR_VIDEO_ID
+        -->
+        <iframe
+          src="https://www.youtube.com/embed/_pLdVtkr-eU?si=H1zQlUCEoRU7toZQ"
+          title="Reel"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section" id="video">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Reel</span>
+        <h2 class="section-title">Watch My Work</h2>
+      </div>
+      <div class="video-embed-wrap fade-in">
+        <!--
+          Replace the src below with your YouTube video embed URL:
+          e.g. https://www.youtube.com/embed/YOUR_VIDEO_ID
+        -->
+        <iframe
+          src="https://www.youtube.com/embed/fzNZ4S5sFeE?si=p65ry1xcdjzDo8Nj"
+          title="Reel"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section" id="video">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Reel</span>
+        <h2 class="section-title">Watch My Work</h2>
+      </div>
+      <div class="video-embed-wrap fade-in">
+        <!--
+          Replace the src below with your YouTube video embed URL:
+          e.g. https://www.youtube.com/embed/YOUR_VIDEO_ID
+        -->
+        <iframe
+          src="https://www.youtube.com/embed/4yJDu-O69kc?si=m31Iz9w-7tIZtg5F"
+          title="Reel"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-img-col fade-in">
+        <div class="about-img-wrap">
+          <!-- Replace with your own photo -->
+          <img src="image/mynew art.png"/>
+          <div class="about-badge">
+            <span class="badge-num">4</span>
+            <span class="badge-text">Years<br/>Experience</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text-col fade-in delay-1">
+        <span class="label">About Me</span>
+        <h2 class="section-title">Educational </h2>
+        <p class="about-para">
+          I am currently an undergraduate at the University of Kelaniya, studying Information and Communication Technology.
+           </p>
+        <p class="about-para">
+          I have experience using industry tools such as Blender, Substance Painter, Krita, Adobe Illustrator, Photoshop, and Houdini. I have independently completed several projects including a Golden Retriever model, a Skyline car, a luxury watch, and a garage environment. I am particularly interested in game development and VFX production, and I am continuously improving my skills to become a professional 3D artist in the future.
+        </p>
+
+        <div class="about-text-col fade-in delay-1">
+        <h2 class="section-title">Skills </h2>
+        <p class="about-para">
+          | 3D Modeling Animation | Texturing | Digital Illustration | Rendering | Basic VFX |
+        </p>
+
+         <div class="about-text-col fade-in delay-1">
+         <h2 class="section-title">Industry Experience </h2><br>
+        <h4 class="labe"> Internship at Bank (6 Months)</h4><br>
+         <div class="about-text-col fade-in delay-1">
+        <h5 class="section-titl">Experience:</h5>
+         <p class="about-para">I worked as an intern in a bank for six months, where I gained valuable practical experience in a professional environment.</p>
+         <div class="about-text-col fade-in delay-1">
+           <h5 class="section-titl">Skills Gained:</h5>
+       <p class="about-para">Teamwork,
+            Communication,
+            Workplace discipline</p>
+        <div class="about-text-col fade-in delay-1">
+      <h5 class="section-titl">Reflection:</h5>
+      <p class="about-para">This experience helped me understand how to work with others and adapt to real-world working conditions.</p>
+
+           <div class="about-text-col fade-in delay-1">
+        <h2 class="section-title">Reflection </h2>
+         <p class="about-para">During my university journey, I have developed both technical and personal skills through academic and self-learning activities. Working on 3D projects helped me improve my creativity and problem-solving skills.</p>
+
+         <p class="about-para">One challenge I faced was managing complex projects alone. However, by practicing regularly and learning from tutorials, I was able to improve my workflow and efficiency.</p>
+
+         <p class="about-para">In the future, I aim to improve my skills in advanced animation and VFX while working on more professional-level projects.</p>
+
+
+           <div class="about-text-col fade-in delay-1">
+         <h2 class="section-title">Career Goals </h2><br>
+            <div class="about-text-col fade-in delay-1">
+           <h5 class="section-titl">Short-Term Goals:</h5>
+              <p class="about-para">mprove 3D modeling and animation skills<br>
+              Build a strong portfolio
+              </p>
+               <div class="about-text-col fade-in delay-1">
+           <h5 class="section-titl">Long-Term Goals:</h5>
+               <p class="about-para">Become a professional 3D artist in the game or film industry</p>
+                  <div class="about-text-col fade-in delay-1">
+          <h5 class="section-titl">Skills to Develop:</h5>
+               <p class="about-para">Advanced VFX, 
+Game asset creation, 
+Real-time rendering
+</p>
+                    
+        <!-- Skill bars -->
+        <div class="skills">
+          <div class="skill-row">
+            <div class="skill-label"><span>3D Modeling</span><span>95%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-w="95"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-label"><span>Texturing & Shading</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-label"><span>Lighting & Rendering</span><span>88%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-label"><span>Motion & VFX</span><span>75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn btn-primary" style="margin-top:2rem;">Let's Collaborate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Get In Touch</span>
+        <h2 class="section-title">Start a Project</h2>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Left: info -->
+        <div class="contact-info fade-in">
+          <p class="contact-intro">
+            Available for freelance projects, full-time roles, and collaborations.
+            Let's build something extraordinary together.
+          </p>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-icon">&#9993;</span>
+              <a href="mailto:gihanchamika1209@gmail.com">gihanchamika1209@gmail.com/a>
+            </li>
+            <li>
+              <span class="contact-icon">&#9742;</span>
+              <a href="tel:+94778859107">+94 778 859 107</a>
+            </li>
+           
+          </ul>
+          <div class="social-links">
+            <a href="https://gihanc2003.artstation.com" class="social-btn" aria-label="ArtStation">ArtStation</a><br>
+            <a href="https://www.facebook.com/61585679866825" class="social-btn" aria-label="Facebook">Facebook</a><br>
+            <a href="https://www.fiverr.com/s/jjBoBWG" class="social-btn" aria-label="Fiverr">Fiverr</a>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <form class="contact-form fade-in delay-1" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required/>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project inquiry…"/>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">Send Message &#10148;</button>
+          <p class="form-success" id="formSuccess">&#10003; Message sent! I'll reply within 24h.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#hero" class="nav-logo">GIHAN.<span class="dot">.</span></a>
+      <p class="footer-copy">&copy; 2025 Gihan3D. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#projects">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <!-- Back to top -->
+    <a href="#hero" class="back-top" id="backTop" aria-label="Back to top">&#8593;</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
