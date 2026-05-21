@@ -278,3 +278,75 @@ contactForm.addEventListener('submit', e => {
 // Handled by scroll listener (section 1) + anchor smooth scroll (section 2)
 
 console.log('Gihan Portfolio — slideshow gallery loaded ✓');
+
+
+/* ── FULLSCREEN IMAGE LIGHTBOX ── */
+(function () {
+  const fsLightbox = document.getElementById('fsLightbox');
+  const fsImg      = document.getElementById('fsImg');
+  const fsClose    = document.getElementById('fsClose');
+  const fsPrev     = document.getElementById('fsPrev');
+  const fsNext     = document.getElementById('fsNext');
+  const fsCounter  = document.getElementById('fsCounter');
+
+  let fsSlides  = [];
+  let fsCurrent = 0;
+
+  function openFs(slides, index) {
+    fsSlides  = slides;
+    fsCurrent = index;
+    fsImg.src = slides[index];
+    fsCounter.textContent = (index + 1) + ' / ' + slides.length;
+    // Show/hide nav arrows
+    fsPrev.style.display = slides.length > 1 ? '' : 'none';
+    fsNext.style.display = slides.length > 1 ? '' : 'none';
+    fsLightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeFs() {
+    fsLightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { fsImg.src = ''; }, 300);
+  }
+
+  function fsGoTo(i) {
+    fsCurrent = (i + fsSlides.length) % fsSlides.length;
+    // Fade swap
+    fsImg.style.opacity = '0';
+    setTimeout(() => {
+      fsImg.src = fsSlides[fsCurrent];
+      fsImg.style.opacity = '1';
+    }, 150);
+    fsCounter.textContent = (fsCurrent + 1) + ' / ' + fsSlides.length;
+  }
+
+  fsClose.addEventListener('click', closeFs);
+  fsLightbox.addEventListener('click', e => { if (e.target === fsLightbox || e.target === document.querySelector('.fs-img-wrap')) closeFs(); });
+  fsPrev.addEventListener('click', e => { e.stopPropagation(); fsGoTo(fsCurrent - 1); });
+  fsNext.addEventListener('click', e => { e.stopPropagation(); fsGoTo(fsCurrent + 1); });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (!fsLightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')      closeFs();
+    if (e.key === 'ArrowLeft')   fsGoTo(fsCurrent - 1);
+    if (e.key === 'ArrowRight')  fsGoTo(fsCurrent + 1);
+  });
+
+  // Smooth opacity transition for image swap
+  fsImg.style.transition = 'opacity 0.15s ease';
+
+  // Wire up click on active modal slide image to open fullscreen
+  // We use event delegation on the modalSlideshow container
+  const modalSlideshow = document.getElementById('modalSlideshow');
+  modalSlideshow.addEventListener('click', function (e) {
+    const clickedSlide = e.target.closest('.modal-slide');
+    if (!clickedSlide || !clickedSlide.classList.contains('active')) return;
+    // Collect all slide srcs in order
+    const allSlides = Array.from(modalSlideshow.querySelectorAll('.modal-slide'));
+    const srcs = allSlides.map(img => img.src);
+    const idx  = allSlides.indexOf(clickedSlide);
+    openFs(srcs, idx);
+  });
+})();
