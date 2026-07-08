@@ -257,20 +257,28 @@ modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) clo
 
 
 /* ── 7. CONTACT FORM ── */
-const contactForm = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-contactForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const btn = contactForm.querySelector('button[type="submit"]');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Send Message ➤';
-    btn.disabled = false;
-    formSuccess.classList.add('show');
-    contactForm.reset();
-    setTimeout(() => formSuccess.classList.remove('show'), 5000);
-  }, 1200);
+emailjs.init(6mOWJE0Vu-bKRuHcw);
+
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+        service_jsaztb8,
+        template_2wrtzhy,
+        this
+    )
+    .then(() => {
+        document.getElementById("status").innerHTML =
+            "Message sent successfully!";
+        form.reset();
+    })
+    .catch((error) => {
+        document.getElementById("status").innerHTML =
+            "Failed to send message.";
+        console.log(error);
+    });
 });
 
 
