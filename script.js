@@ -257,20 +257,54 @@ modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) clo
 
 
 /* ── 7. CONTACT FORM ── */
-const contactForm = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-contactForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const btn = contactForm.querySelector('button[type="submit"]');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Send Message ➤';
-    btn.disabled = false;
-    formSuccess.classList.add('show');
-    contactForm.reset();
-    setTimeout(() => formSuccess.classList.remove('show'), 5000);
-  }, 1200);
+/* ── 7. CONTACT FORM (EmailJS) ── */
+
+// Initialize EmailJS
+emailjs.init({
+    publicKey:6mOWJE0Vu-bKRuHcw
+});
+
+const contactForm = document.getElementById("contactForm");
+const formSuccess = document.getElementById("formSuccess");
+
+contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const btn = contactForm.querySelector('button[type="submit"]');
+
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+
+    emailjs.sendForm(
+        service_jsaztb8,
+        template_2wrtzhy,
+        this
+    )
+    .then(() => {
+
+        btn.disabled = false;
+        btn.textContent = "Send Message ➤";
+
+        formSuccess.innerHTML = "✅ Message sent successfully!";
+        formSuccess.classList.add("show");
+
+        contactForm.reset();
+
+        setTimeout(() => {
+            formSuccess.classList.remove("show");
+        }, 5000);
+
+    })
+    .catch((error) => {
+
+        console.error(error);
+
+        btn.disabled = false;
+        btn.textContent = "Send Message ➤";
+
+        formSuccess.innerHTML = "❌ Failed to send message.";
+        formSuccess.classList.add("show");
+    });
 });
 
 
