@@ -217,54 +217,64 @@ document.addEventListener('keydown', e => {
 
 
 /* ── 7. CONTACT FORM ── */
+
+
 /* ── 7. CONTACT FORM (EmailJS) ── */
 
-// Initialize EmailJS
-emailjs.init({
-    publicKey: "6mOWJE0Vu-bKRuHcw"
-});
+// Your EmailJS keys
+const EMAILJS_PUBLIC_KEY  = "6mOWJE0Vu-bKRuHcw";
+const EMAILJS_SERVICE_ID  = "service_5xxejgl";
+const EMAILJS_TEMPLATE_ID = "template_2wrtzhy";
+
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
 const contactForm = document.getElementById("contactForm");
 const formSuccess = document.getElementById("formSuccess");
 
-contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+function showFormMessage(text, type) {
+  formSuccess.textContent = text;
+  formSuccess.classList.remove("success", "error");
+  formSuccess.classList.add(type, "show");
+  clearTimeout(showFormMessage.timer);
+  showFormMessage.timer = setTimeout(() => {
+    formSuccess.classList.remove("show");
+  }, 6000);
+}
 
-    const btn = contactForm.querySelector('button[type="submit"]');
+contactForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-    btn.disabled = true;
-    btn.textContent = "Sending...";
+  const btn = contactForm.querySelector('button[type="submit"]');
+  const originalText = btn.innerHTML;
 
-    emailjs.sendForm(
-        "service_jsaztb8",
-        "template_2wrtzhy",
-        this
-    )
-    .then(() => {
+  btn.disabled = true;
+  btn.textContent = "Sending...";
 
-        btn.disabled = false;
-        btn.textContent = "Send Message ➤";
+  // Build the params explicitly so the template variables always match.
+  // In your EmailJS template use: {{name}}, {{email}}, {{subject}}, {{message}}
+  const params = {
+    name:    contactForm.name.value.trim(),
+    email:   contactForm.email.value.trim(),
+    subject: contactForm.subject.value.trim() || "Project inquiry",
+    message: contactForm.message.value.trim(),
+    reply_to: contactForm.email.value.trim()
+  };
 
-        formSuccess.innerHTML = "✅ Message sent successfully!";
-        formSuccess.classList.add("show");
-
-        contactForm.reset();
-
-        setTimeout(() => {
-            formSuccess.classList.remove("show");
-        }, 5000);
-
-    })
-    .catch((error) => {
-
-        console.error(error);
-
-        btn.disabled = false;
-        btn.textContent = "Send Message ➤";
-
-        formSuccess.innerHTML = "❌ Failed to send message.";
-        formSuccess.classList.add("show");
-    });
+  try {
+    const response = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
+    if (response.status === 200) {
+      showFormMessage("✅ Message sent successfully! I'll reply within 24h.", "success");
+      contactForm.reset();
+    } else {
+      throw new Error("Unexpected status: " + response.status);
+    }
+  } catch (error) {
+    console.error("EmailJS error:", error);
+    showFormMessage("❌ Failed to send message. Please email me directly at gihanchamika1209@gmail.com", "error");
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = originalText;
+  }
 });
 
 
