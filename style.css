@@ -30,9 +30,9 @@
   --accent-2:    #EAE0CF;   /* warm cream */
   --accent-grad: linear-gradient(135deg, #213448 0%, #547792 50%, #94B4C1 100%);
 
-  --text:        #e8eaf0;
-  --text-muted:  #7a8099;
-  --text-dim:    #4a5068;
+  --text:        #ffffff;
+  --text-muted:  #bdc9f8;
+  --text-dim:    #ffffff;
 
   /* Typography */
   --font-display: 'Sora', sans-serif;
